@@ -62,7 +62,7 @@ async def analyze(request):
     img = open_image(BytesIO(img_bytes))
     pred_class,pred_idx,outputs = learn.predict(img)
     prediction = str(f"Soort : {pred_class}\nConfidence : {outputs[pred_idx]:.2%}")
-    return JSONResponse(prediction)
+    return JSONResponse({'result': str(prediction)})
 
 
 if __name__ == '__main__':
